@@ -11,9 +11,9 @@ const Contact = lazy(() => import('./pages/Contact'));
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow container mx-auto max-w-6xl px-4">
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route path="/" element={<Home />} />

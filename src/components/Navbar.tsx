@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { useTheme } from '../hooks/useTheme';
 
 export default function Navbar() {
@@ -9,88 +7,78 @@ export default function Navbar() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <nav className="sticky top-0 bg-white dark:bg-gray-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 bg-white dark:bg-gray-800 shadow-md z-50">
+      <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary dark:text-secondary">
-              JP
+          <Link to="/" className="text-2xl font-bold text-primary dark:text-white">
+            JP
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary">
+              Home
             </Link>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
-              <Link to="/" className="px-3 py-2 rounded-md text-lg font-medium text-primary dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700">
-                Home
-              </Link>
-              <Link to="/projects" className="px-3 py-2 rounded-md text-lg font-medium text-primary dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700">
-                Projects
-              </Link>
-              <Link to="/contact" className="px-3 py-2 rounded-md text-lg font-medium text-primary dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700">
-                Contact
-              </Link>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                aria-label="Toggle dark mode"
-              >
-                {isDark ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
-              </button>
-            </div>
+            <Link to="/projects" className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary">
+              Projects
+            </Link>
+            <Link to="/contact" className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary">
+              Contact
+            </Link>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-md text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              {isDark ? '🌞' : '🌙'}
+            </button>
           </div>
 
+          {/* Mobile Navigation Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 mr-2"
-              aria-label="Toggle dark mode"
+              className="p-2 mr-2 rounded-md text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              {isDark ? <SunIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
+              {isDark ? '🌞' : '🌙'}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-expanded="false"
+              className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary"
             >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? (
-                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-              )}
+              {isOpen ? '✕' : '☰'}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-              to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              to="/projects"
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700"
-              onClick={() => setIsOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              to="/contact"
-              className="block px-3 py-2 rounded-md text-base font-medium text-primary dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden py-4">
+            <div className="flex flex-col space-y-4">
+              <Link
+                to="/"
+                className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/projects"
+                className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Projects
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-800 dark:text-white hover:text-primary dark:hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }
