@@ -12,11 +12,11 @@ const projects = [
       "Monitored system health with Prometheus and Grafana"
     ],
     demo: "#",
-    github: "#"
+    github: "https://github.com/jperez62176"
   },
   {
     title: "Cryptocurrency Charting Platform",
-    image: "/images/ImageCluster.png",
+    image: "/images/Crypto-inspect-chart.jpg",
     description: "Advanced charting platform for cryptocurrency price analysis and strategy backtesting.",
     bullets: [
       "Built responsive UI with React and TypeScript",
@@ -24,8 +24,8 @@ const projects = [
       "Implemented real-time price updates and historical data storage",
       "Created strategy backtesting engine with PostgreSQL"
     ],
-    demo: "#",
-    github: "#"
+    demo: "https://crypto-inspect.com",
+    github: "https://github.com/jperez62176"
   }
 ];
 
