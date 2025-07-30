@@ -99,7 +99,7 @@ export default function Contact() {
 
         <div className="mt-12 flex justify-center space-x-6">
           <a
-            href="https://github.com/Kami62176"
+            href="https://github.com/jperez62176"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
@@ -107,7 +107,7 @@ export default function Contact() {
             <img src="/images/github.png" alt="GitHub" className="w-8 h-8" />
           </a>
           <a
-            href="https://www.linkedin.com/in/jose-perez-46750a253/"
+            href="www.linkedin.com/in/jperez62176"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
