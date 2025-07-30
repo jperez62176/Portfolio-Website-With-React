@@ -107,7 +107,7 @@ export default function Contact() {
             <img src="/images/github.png" alt="GitHub" className="w-8 h-8" />
           </a>
           <a
-            href="www.linkedin.com/in/jperez62176"
+            href="https://www.linkedin.com/in/jperez62176"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
